@@ -44,7 +44,11 @@ Rather than relying on a single model, predictions come from a **weighted ensemb
 
 ## 💡 Why I Built This
 
-*[Note: swap this in with your own words on what got you interested in this project — even a sentence or two works well.]*
+I got interested in this project because house price prediction is one of those problems that looks simple on the surface but gets messy fast once you actually dig in. The Ames Housing dataset has a huge number of features, a lot of them overlapping or redundant, and no single model handles all of it well. That felt like a good excuse to stop relying on one algorithm and actually compare a few properly.
+
+So I trained four models — Lasso, Ridge, Gradient Boosting, and XGBoost — instead of just picking one and calling it done. Ridge ended up not pulling its weight once I tested it against the others, so I left it out of the final blend rather than forcing it in just because I'd trained it. The final prediction comes from a weighted mix of the three that actually helped.
+
+Getting it running online turned out to be its own project. I hit a real scikit-learn and Python version mismatch once it was deployed — the kind of issue you only run into once a model leaves your notebook and has to work somewhere else, on someone else's setup. Chasing that down taught me almost as much as building the models did.
 
 I built this to get hands-on experience deploying ML models beyond a notebook — the goal wasn't just training a regressor, it was building the full pipeline: preprocessing, feature engineering, model comparison, ensembling, a working web interface, and cloud deployment. Getting scikit-learn version pinning and Python runtime configuration right on Streamlit Cloud taught me as much about deployment as the modeling did.
 
